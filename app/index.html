@@ -16,11 +16,13 @@
   <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
   <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
   <!-- endbuild -->
-  <script src="http://momentjs.com/downloads/moment-with-locales.js"></script>
+  <link rel="import"
+        href="bower_components/paper-button/paper-button.html">
+  <link rel="import"
+        href="bower_components/core-localstorage/core-localstorage.html">
 
   <!-- build:vulcanized elements/elements.vulcanized.html -->
   <link rel="import" href="elements/elements.html">
-  <link rel="import" href="bower_components/paper-button/paper-button.html">
   <!-- endbuild-->
 </head>
 
@@ -30,8 +32,11 @@
     <p>You now have</p>
     <paper-button id="button" raised>load</paper-button>
 
-    <sport-activity duration="00:02:01.030" date="2014-12-13T07:05:45.730Z" pk="1"><h2>Activity</h2></sport-activity>
+    <!--<sport-activity duration="00:02:01.030" date="2014-12-13T07:05:45.730Z"
+                     pk="1"><h2>Activity</h2></sport-activity>
 
+-->
+      <sport-activity-list></sport-activity-list>
   </div>
 
   <!-- build:js scripts/app.js -->

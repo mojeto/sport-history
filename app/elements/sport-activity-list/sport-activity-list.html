@@ -1,0 +1,40 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
+
+<polymer-element name="sport-activity-list" attributes="">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <core-ajax id="ajax"
+                url="{{url}}"
+                handleAs="json"
+                method="GET"
+                on-core-response="{{handleResponse}}"></core-ajax>
+        <template repeat="{{activity in activities}}">
+            <sport-activity pk="{{activity.pk}}" duration="{{activity.duration}}"
+                            date="{{activity.date}}">
+                <h3>API acitivity</h3>
+            </sport-activity>
+        </template>
+    </template>
+    <script>
+        (function () {
+
+            Polymer({
+                activities: [],
+                url: '',
+                loadData: function () {
+                    this.$.ajax.go();
+                },
+                handleResponse: function (event, data) {
+                    this.activities = data.response || [];
+                    console.log(this.activities);
+                }
+            });
+
+        })();
+    </script>
+</polymer-element>
