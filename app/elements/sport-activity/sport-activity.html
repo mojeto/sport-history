@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../moment-js/moment-js.html">
 
 <polymer-element name="sport-activity" attributes="duration date pk">
   <template>
@@ -8,13 +9,14 @@
       }
     </style>
     <section id="sport-activity-{{pk}}">
-      <section>
+      <header><content></content></header>
+      <section layout horizontal around-justified>
         <header>Duration:</header>
         <div class="duration">{{duration}}</div>
       </section>
       <section>
         <header>Date:</header>
-        <div class="date">{{date}}</div>
+        <div class="date">{{getDate()}}</div>
       </section>
     </section>
   </template>
@@ -23,8 +25,11 @@
 
       Polymer({
         pk: 0,
-        duration: null,
-        date: null
+        duration: "00:00:00.000",
+        date: null,
+        getDate: function() {
+          return moment(this.date).format('lll')
+        }
       });
 
     })();

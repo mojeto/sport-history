@@ -2,10 +2,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>yo-greeting-basic</title>
+    <title>sport-activity-basic</title>
 
     <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
     <script src="../bower_components/web-component-tester/browser.js"></script>
+    <link rel="import" href="../elements/moment-js/moment-js.html">
 
     <!-- Step 1: import the element to test -->
     <link rel="import" href="../elements/sport-activity/sport-activity.html">
@@ -13,7 +14,7 @@
 </head>
 <body>
 
-<sport-activity id="fixture" pk="primary-key" date='2014-12-19' duration="10:09:08.011"></sport-activity>
+<sport-activity id="fixture" pk="primary-key" date='2014-12-19T00:00:00.000Z' duration="10:09:08.011"></sport-activity>
 
 <script>
     var saEl = document.querySelector('sport-activity');
@@ -21,15 +22,18 @@
     suite('sport-activity', function () {
         test('primary key test', function () {
             var section = saEl.shadowRoot.querySelector('section');
-            assert.equal(section.id, 'sport-activity-primary-key');
+            assert.equal('sport-activity-primary-key', section.id);
         });
         test('test-duration', function () {
             var duration = saEl.shadowRoot.querySelector('div.duration');
-            assert.equal(duration.innerHTML, '10:09:08.011');
+            assert.equal('10:09:08.011', duration.innerHTML);
         });
         test('test-date', function () {
             var date = saEl.shadowRoot.querySelector('div.date');
-            assert.equal(date.innerHTML, '2014-12-19');
+            assert.equal(saEl.getDate(), date.innerHTML);
+        });
+        test('test-get-date', function(){
+            assert.equal(moment(saEl.date).format("lll"), saEl.getDate());
         });
     });
 </script>
