@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="sport-activity" attributes="duration date pk">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <section id="sport-activity-{{pk}}">
+      <section>
+        <header>Duration:</header>
+        <div class="duration">{{duration}}</div>
+      </section>
+      <section>
+        <header>Date:</header>
+        <div class="date">{{date}}</div>
+      </section>
+    </section>
+  </template>
+  <script>
+    (function () {
+
+      Polymer({
+        pk: 0,
+        duration: null,
+        date: null
+      });
+
+    })();
+  </script>
+</polymer-element>
