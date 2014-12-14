@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>server-url-basic</title>
+
+    <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="../bower_components/web-component-tester/browser.js"></script>
+
+    <!-- Step 1: import the element to test -->
+    <link rel="import" href="../elements/server-url/server-url.html">
+
+</head>
+<body>
+
+    <server-url></server-url>
+
+<script>
+
+    var url = 'http://server.url/';
+    localStorage.setItem('server-url', url);
+
+    var serverUrl = document.querySelector('server-url');
+
+    suite('server-url', function () {
+        test('test-getUrl', function () {
+            assert.equal(url, serverUrl.getUrl());
+        });
+    });
+</script>
+
+</body>
+</html>

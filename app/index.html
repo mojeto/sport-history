@@ -2,46 +2,43 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>sport history</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>sport history</title>
+    <meta name="description" content="">
+    <meta name="viewport"
+          content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-  <!-- build:css styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
-  <!-- endbuild-->
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild-->
 
-  <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
-  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
-  <!-- endbuild -->
-  <link rel="import"
-        href="bower_components/paper-button/paper-button.html">
-  <link rel="import"
-        href="bower_components/core-localstorage/core-localstorage.html">
+    <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <!-- endbuild -->
+    <link rel="import"
+          href="bower_components/paper-button/paper-button.html">
+    <link rel="import"
+          href="bower_components/core-localstorage/core-localstorage.html">
 
-  <!-- build:vulcanized elements/elements.vulcanized.html -->
-  <link rel="import" href="elements/elements.html">
-  <!-- endbuild-->
+    <!-- build:vulcanized elements/elements.vulcanized.html -->
+    <link rel="import" href="elements/elements.html">
+    <!-- endbuild-->
 </head>
 
 <body unresolved>
 
-  <div class="hero-unit">
+<div class="hero-unit">
     <p>You now have</p>
     <paper-button id="button" raised>load</paper-button>
+    <sport-activity-form></sport-activity-form>
+    <sport-activity-list></sport-activity-list>
+</div>
 
-    <!--<sport-activity duration="00:02:01.030" date="2014-12-13T07:05:45.730Z"
-                     pk="1"><h2>Activity</h2></sport-activity>
-
--->
-      <sport-activity-list></sport-activity-list>
-  </div>
-
-  <!-- build:js scripts/app.js -->
-  <script src="scripts/app.js"></script>
-  <!-- endbuild-->
+<!-- build:js scripts/app.js -->
+<script src="scripts/app.js"></script>
+<!-- endbuild-->
 </body>
 
 </html>

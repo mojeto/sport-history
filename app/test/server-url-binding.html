@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>server-url-basic</title>
+
+    <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="../bower_components/web-component-tester/browser.js"></script>
+
+    <!-- Step 1: import the element to test -->
+    <link rel="import" href="../elements/server-url/server-url.html">
+
+</head>
+<body>
+
+    <polymer-element name="test-server-url" attributes="value" noscript>
+        <template>
+            <server-url url="{{value}}"></server-url>
+        </template>
+    </polymer-element>
+
+    <test-server-url></test-server-url>
+
+<script>
+
+    var url = 'http://server.url/';
+    localStorage.setItem('server-url', url);
+
+    var serverUrlTest = document.querySelector('test-server-url');
+
+    suite('server-url', function () {
+        test('test-url-binding', function () {
+            assert.isNotNull(serverUrlTest.value)
+            assert.equal(url, serverUrlTest.value);
+        });
+        test('test-set-url-binding', function(done) {
+            serverUrlTest.value = 'http://new.server.url/';
+            flush(function() {
+                var value = localStorage.getItem('server-url');
+                assert.equal('http://new.server.url/', value);
+                done();
+            })
+        });
+    });
+</script>
+
+</body>
+</html>

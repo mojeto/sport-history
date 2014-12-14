@@ -1,0 +1,26 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-localstorage/core-localstorage.html">
+
+<polymer-element name="server-url" attributes="url">
+  <template>
+    <style>
+      :host {
+        display: none;
+      }
+    </style>
+    <core-localstorage name="server-url" useRaw
+                       value="{{url}}"></core-localstorage>
+  </template>
+  <script>
+    (function () {
+
+      Polymer({
+        url: '',
+        getUrl: function() {
+          return this.url;
+        }
+      });
+
+    })();
+  </script>
+</polymer-element>

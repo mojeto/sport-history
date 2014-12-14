@@ -1,0 +1,42 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/ajax-form/ajax-form.html">
+
+<polymer-element name="sport-activity-form" attributes="pk duration date">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <server-url url="{{server-url}}"></server-url>
+        <form is="ajax-form"
+              id="formId"
+              action="{{server-url}}/activity/{{pk}}"
+              method="POST"
+              enctype="application/json">
+            <input type="hidden" name="id" value="{{pk}}">
+            <input type="text" name="duration" value="{{duration}}">
+            <input type="text" name="date" value="{{date}}">
+            <input type="submit" value="Create">
+        </form>
+    </template>
+    <script>
+        (function () {
+
+            Polymer({
+                duration: '00:01:02.002',
+                date: '2014-12-14T01:02:03.009Z',
+                pk: null,
+                ready: function () {
+                    console.log('tu');
+                    console.log(this.$.formId);
+                    this.$.addEventListener('submitting', function
+                            (event) {
+                        console.log(event.detail.formData);
+                    });
+                }
+            });
+
+        })();
+    </script>
+</polymer-element>
